@@ -1,7 +1,12 @@
 ## achoy/vision-talk
-[Website](https://www.choycreative.com)
+[choycreative.com](https://www.choycreative.com)
 
 # Computer Vision Talk
+
+To be presented at the following conference:
+https://twincitiescodecamp.com/#/events/23/talks
+
+Every car company (from Tesla to BMW) is trying to build a self-driving car. One of the major components is computer vision. In this hour, we will look at convolutional neural networks and the latest in open source image processing libraries. Bring your laptop, a strong beverage, and join in the coding fun.
 
 ## Run Keras/Jupyter using premade docker instance.
 This configuration assumes that docker is running and configured.
@@ -25,4 +30,4 @@ http://127.0.0.1:8888/?token=$RUNTOKEN
 
 ## References used in this presentation
 
-*[dl-docker from github/floydhub](https://github.com/floydhub/dl-docker)
+[dl-docker from github/floydhub](https://github.com/floydhub/dl-docker)
