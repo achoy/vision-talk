@@ -1,10 +1,10 @@
 # THIS SPECIFIC FILE IS DISTRIBUTED UNDER THE UNLICENSE: http://unlicense.org.
-# 
+#
 # YOU CAN FREELY USE THIS CODE EXAMPLE TO KICKSTART A PROJECT OF YOUR OWN.
 # FEEL FREE TO REPLACE OR REMOVE THIS HEADER.
 version: '3.4'
 services:
-  main:
+  jupyter:
     # Makefile fills PROJECT_NAME to current directory name.
     # add UID to allow multiple users run this in parallel
     container_name: ${PROJECT_NAME}_${HOST_UID:-4000}
@@ -14,18 +14,22 @@ services:
       - UID=${HOST_UID:-4000}
     # Run with user priviliges by default.
     user: ${HOST_USER:-nodummy}
-    image: ${PROJECT_NAME}:${HOST_USER:-nodummy}
+    image: ${REPO}/${PROJECT_NAME}:${HOST_USER:-nodummy}
     build:
       context: .
       # Build for current user.
-      target: user
+      #target: user
       dockerfile: Dockerfile
       # These variables are passed to Dockerfile.
       args:
         - HOST_UID=${HOST_UID:-4000}
         - HOST_USER=${HOST_USER:-nodummy}
     # Run container as a service. Replace with something useful.
-    command: ["tail", "-f", "/dev/null"]
+    command: ["jupyter", "notebook", "--allow-root"]
     # Copy current (git-) project into container.
     volumes:
       - ${PWD:-.}:/home/${HOST_USER}/${PROJECT_NAME}
+      - ${PWD:-.}/sharedfolder:/home/${HOST_USER}/sharedfolder
+    ports:
+      - "8888:8888"
+      - "6006:6006"

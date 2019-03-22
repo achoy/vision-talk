@@ -11,11 +11,13 @@ PWD ?= pwd_unknown
 
 # PROJECT_NAME defaults to name of the current directory.
 # should not to be changed if you follow GitOps operating procedures.
-PROJECT_NAME = $(notdir $(PWD))
+#PROJECT_NAME = $(notdir $(PWD))
+PROJECT_NAME = vision-talk
+REPO = achoy
 
 # Note. If you change this, you also need to update docker-compose.yml.
 # only useful in a setting with multiple services/ makefiles.
-SERVICE_TARGET := main
+SERVICE_TARGET := jupyter
 
 # if vars not set specifially: try default to environment, else fixed value.
 # strip to ensure spaces are removed in future editorial mistakes.
@@ -38,9 +40,10 @@ CMD_ARGUMENTS ?= $(cmd)
 export PROJECT_NAME
 export HOST_USER
 export HOST_UID
+export REPO
 
 # all our targets are phony (no files to check).
-.PHONY: shell update help build rebuild service login test clean prune
+.PHONY: shell update notebook help build rebuild service login test clean prune
 
 # suppress makes own output
 #.SILENT:
@@ -73,7 +76,9 @@ help:
 	@echo '  clean    	remove docker --image-- for current user: $(HOST_USER)(uid=$(HOST_UID))'
 	@echo '  prune    	shortcut for docker system prune -af. Cleanup inactive containers and cache.'
 	@echo '  shell      run docker --container-- for current user: $(HOST_USER)(uid=$(HOST_UID))'
+	@echo '  push       push image back'
 	@echo '  update     git update'
+	@echo '  notebook   run notebook'
 	@echo ''
 	@echo 'Extra arguments:'
 	@echo 'cmd=:	make cmd="whoami"'
@@ -96,6 +101,10 @@ login: service
 build:
 	# only build the container. Note, docker does this also if you apply other targets.
 	docker-compose build $(SERVICE_TARGET)
+
+push:
+		# push image
+		docker-compose push $(SERVICE_TARGET)
 
 clean:
 	# remove created images
