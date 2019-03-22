@@ -94,6 +94,10 @@ service:
 	# run as a (background) service
 	docker-compose -p $(PROJECT_NAME)_$(HOST_UID) up -d $(SERVICE_TARGET)
 
+notebook:
+	# run as a non-background service
+	docker-compose -p $(PROJECT_NAME)_$(HOST_UID) up $(SERVICE_TARGET)
+
 login: service
 	# run as a service and attach to it
 	docker exec -it $(PROJECT_NAME)_$(HOST_UID) sh

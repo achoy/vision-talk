@@ -8,7 +8,7 @@ services:
     # Makefile fills PROJECT_NAME to current directory name.
     # add UID to allow multiple users run this in parallel
     container_name: ${PROJECT_NAME}_${HOST_UID:-4000}
-    hostname: ${PROJECT_NAME}
+    #hostname: ${PROJECT_NAME}
     # These variables are passed into the container.
     environment:
       - UID=${HOST_UID:-4000}
@@ -25,7 +25,7 @@ services:
         - HOST_UID=${HOST_UID:-4000}
         - HOST_USER=${HOST_USER:-nodummy}
     # Run container as a service. Replace with something useful.
-    command: ["jupyter", "notebook", "--allow-root"]
+    command: ["jupyter", "notebook", "--ip=0.0.0.0"]
     # Copy current (git-) project into container.
     volumes:
       - ${PWD:-.}:/home/${HOST_USER}/${PROJECT_NAME}
