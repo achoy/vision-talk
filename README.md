@@ -17,7 +17,7 @@ This configuration assumes that docker is running and configured.
 git clone https://github.com/achoy/vision-talk.git
 cd vision-talk
 docker pull achoy/vision-talk:latest
-./docker_jupyter.sh
+./scripts/docker_jupyter.sh
 ```
 
 * Start a browser to run jupyter notebook locally
