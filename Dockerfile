@@ -2,7 +2,6 @@ FROM achoy/vision-core:latest
 
 MAINTAINER Albert Choy <albert@choycreative.com>
 
-
 ARG HOST_UID=${HOST_UID:-4000}
 ARG HOST_USER=${HOST_USER:-nodummy}
 
@@ -27,10 +26,10 @@ RUN pip3 --no-cache-dir install keras
 RUN pip3 install jupyter
 
 # Set up notebook config
-COPY docker2/jupyter_notebook_config.py /root/.jupyter/
+COPY docker/jupyter_notebook_config.py /root/.jupyter/
 
 # Jupyter has issues with being run directly: https://github.com/ipython/ipython/issues/7062
-COPY docker2/run_jupyter.sh /root/
+COPY scripts/run_jupyter.sh /root/
 
 # Expose Ports for TensorBoard (6006), Ipython (8888)
 EXPOSE 6006 8888
