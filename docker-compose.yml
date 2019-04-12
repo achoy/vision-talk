@@ -14,7 +14,8 @@ services:
       - UID=${HOST_UID:-4000}
     # Run with user priviliges by default.
     user: ${HOST_USER:-nodummy}
-    image: ${REPO}/${PROJECT_NAME}:${HOST_USER:-nodummy}
+    #image: ${REPO}/${PROJECT_NAME}:${HOST_USER:-nodummy}
+    image: ${REPO}/${PROJECT_NAME}:${PROJECT_TAG}
     build:
       context: .
       # Build for current user.

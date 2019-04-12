@@ -8,9 +8,10 @@ ARG HOST_USER=${HOST_USER:-nodummy}
 #RUN [ "${HOST_USER}" == "root" ] || \
 #    (adduser -h /home/${HOST_USER} -D -u ${HOST_UID} ${HOST_USER} \
 #    && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER})
-RUN [ "${HOST_USER}" == "root" ] || \
-    (useradd -m -u ${HOST_UID} ${HOST_USER} \
-    && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER})
+#RUN [ "${HOST_USER}" == "root" ] || \
+#    (useradd -m -u ${HOST_UID} ${HOST_USER} \
+#    && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER})
+RUN useradd -m -u ${HOST_UID} ${HOST_USER} && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER}
 
 
 # Run ipykernel
@@ -21,6 +22,9 @@ RUN pip3 --no-cache-dir install tensorflow==2.0.0-alpha0
 
 # Install Keras
 RUN pip3 --no-cache-dir install keras
+
+# Install matplotlib
+RUN pip3 install matplotlib
 
 # Install jupyter
 RUN pip3 install jupyter
