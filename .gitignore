@@ -1,3 +1,6 @@
 #ignore these files
 **/certs
 **/env
+**/*.ipynb
+**/*.hdf5
+
