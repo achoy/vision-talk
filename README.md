@@ -16,7 +16,7 @@ This configuration assumes that docker is running and configured.
 ```bash
 git clone https://github.com/achoy/vision-talk.git
 cd vision-talk
-docker pull achoy/vision-talk:latest
+docker pull achoy/vision-talk:latest3
 ./scripts/docker_jupyter.sh
 ```
 
