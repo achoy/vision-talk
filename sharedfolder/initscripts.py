@@ -15,6 +15,24 @@ for i in range ( 36 ):
     ax = fig.add_subplot( 3 , 12 , i + 1 , xticks = [], yticks = [])
     ax.imshow(np.squeeze(x_train[i]))
 
+# Visualize function to see one image
+x2_train = x_train
+def visualize(image):
+    fig = plt.figure(figsize = (20,5))
+    ax = fig.add_subplot(3, 12, image+1, xticks = [], yticks = [])
+    ax.imshow(np.squeeze(x2_train[image]))
+
+x2_test = x_test
+
+# show a set of images
+def visualize(group, image0, imagen):
+    fig = plt.figure(figsize = (20,5))
+    count = imagen - image0
+    height = (count // 12) + 1
+    for i in range(count):
+        ax = fig.add_subplot(height, 12, i+1, xticks = [], yticks = [])
+        ax.imshow(np.squeeze(group[image0 + i]))
+
 # Image preprocessing
 # rescale images by dividing the pixel values by 255 [0,255] --> [0,1]
 x_train = x_train.astype( 'float32' ) /255
