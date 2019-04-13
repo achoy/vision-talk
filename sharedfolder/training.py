@@ -26,3 +26,6 @@ def score_model(model):
     # evaluate and print test accuracy
     score = model.evaluate(x_test, y_test, verbose =0 )
     print ( ' \n ' , 'Test accuracy:' , score[ 1 ])
+
+def doggieness(result):
+    print('\n', 'Doggieness:', result[5]*100.0)
