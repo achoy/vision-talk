@@ -8,16 +8,10 @@ ARG HOST_USER=${HOST_USER:-nodummy}
 #RUN [ "${HOST_USER}" == "root" ] || \
 #    (adduser -h /home/${HOST_USER} -D -u ${HOST_UID} ${HOST_USER} \
 #    && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER})
-<<<<<<< HEAD
 #RUN [ "${HOST_USER}" == "root" ] || \
 #    (useradd -m -u ${HOST_UID} ${HOST_USER} \
 #    && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER})
 RUN useradd -m -u ${HOST_UID} ${HOST_USER} && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER}
-=======
-RUN [ "${HOST_USER}" == "root" ] || \
-    (useradd -m -u ${HOST_UID} ${HOST_USER} \
-    && chown -R "${HOST_UID}:${HOST_UID}" /home/${HOST_USER})
->>>>>>> a62b549c15903eb2679932bbccbdd9b862e050cb
 
 
 # Run ipykernel
@@ -29,12 +23,9 @@ RUN pip3 --no-cache-dir install tensorflow==2.0.0-alpha0
 # Install Keras
 RUN pip3 --no-cache-dir install keras
 
-<<<<<<< HEAD
 # Install matplotlib
 RUN pip3 install matplotlib
 
-=======
->>>>>>> a62b549c15903eb2679932bbccbdd9b862e050cb
 # Install jupyter
 RUN pip3 install jupyter
 
