@@ -37,7 +37,10 @@ RUN	pip3 install Cython \
 		six \
 		sphinx \
 		wheel \
+<<<<<<< HEAD
 		matplotlib \
+=======
+>>>>>>> a62b549c15903eb2679932bbccbdd9b862e050cb
 		zmq
 
 
