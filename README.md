@@ -1,14 +1,25 @@
-## achoy/vision-talk
-[choycreative.com](https://www.choycreative.com)
+### achoy/vision-talk
+Presentation: [@speakerdeck](https://speakerdeck.com/achoy/computer-vision-2019-presentation-number-tccc23)
+Twitter: [@askchoy](https://twitter.com/askchoy)
+Website: [choycreative.com](https://www.choycreative.com)
 
-# Computer Vision Talk
+## Computer Vision Talk
 
-To be presented at the following conference:
+Presented at this year's Twin Cities Code Camp Version #23:
 https://twincitiescodecamp.com/#/events/23/talks
+
+## Description
 
 Every car company (from Tesla to BMW) is trying to build a self-driving car. One of the major components is computer vision. In this hour, we will look at convolutional neural networks and the latest in open source image processing libraries. Bring your laptop, a strong beverage, and join in the coding fun.
 
-## Run Keras/Jupyter using premade docker instance.
+## What is here:
+* Docker files to create achoy/vision-talk instance.
+* Example code from presentation
+* My continuing exploration into CNN, Keras, and autonomous vehicle development.
+
+## To use this:
+
+# Run Keras/Jupyter using premade docker instance.
 This configuration assumes that docker is running and configured.
 
 * Steps to pull in this repo and start instance.
