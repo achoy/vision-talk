@@ -1,7 +1,8 @@
-### achoy/vision-talk
-Presentation: [@speakerdeck](https://speakerdeck.com/achoy/computer-vision-2019-presentation-number-tccc23)
-Twitter: [@askchoy](https://twitter.com/askchoy)
-Website: [choycreative.com](https://www.choycreative.com)
+# achoy/vision-talk
+
+* Presentation: [@speakerdeck](https://speakerdeck.com/achoy/computer-vision-2019-presentation-number-tccc23)
+* Twitter: [@askchoy](https://twitter.com/askchoy)
+* Website: [choycreative.com](https://www.choycreative.com)
 
 ## Computer Vision Talk
 
@@ -19,7 +20,7 @@ Every car company (from Tesla to BMW) is trying to build a self-driving car. One
 
 ## To use this:
 
-# Run Keras/Jupyter using premade docker instance.
+### Run Keras/Jupyter using premade docker instance.
 This configuration assumes that docker is running and configured.
 
 * Steps to pull in this repo and start instance.
